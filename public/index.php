@@ -2,9 +2,9 @@
 <?php
 // Appeler une fonction static qui s'appelerait autoload dans la class Autoloader
 require_once '../src/Core/Autoloader.php';
-use App\Entity\Test;
 use App\Core\Autoloader;
+use App\Core\Router;
 
 Autoloader::autoload();
-$affiche= new Test();
-echo $affiche->display();
+$router= new Router;
+$router->execute();

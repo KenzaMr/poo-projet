@@ -10,6 +10,7 @@
 <body>
     <header></header>
     <main>
+        <h1>Contact</h1>
         <form action="">
             <div>
                 <label for="">Email</label>

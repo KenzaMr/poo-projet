@@ -32,7 +32,7 @@ private static \PDO $connexion;
 public static function initConnection(){
     try{
         self::$connexion = new \PDO
-        ("mysql:host=" . self::$host .";dbname=" . self::$dbname . "," . self::$username . ",". self::$password);
+        ('mysql:host=' . self::$host .';dbname=' . self::$dbname . "," , self::$username ,self::$password);
 
     }catch(PDOException $e){
         echo 'Erreur:'. $e->getMessage();

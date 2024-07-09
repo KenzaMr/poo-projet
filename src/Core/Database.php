@@ -34,15 +34,16 @@ public static function initConnection(){
         self::$connexion = new \PDO
         ("mysql:host=" . self::$host .";dbname=" . self::$dbname . "," . self::$username . ",". self::$password);
 
-    }catch(PDOException $a){
-        echo 'Erreur:'
+    }catch(PDOException $e){
+        echo 'Erreur:'. $e->getMessage();
+        exit;
     }
 }
 
 /**
  * Get the value of connexion
  */ 
-public function getConnexion()
+public static function getConnexion()
 {
 return self::$connexion;
 }

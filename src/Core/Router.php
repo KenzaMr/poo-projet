@@ -5,6 +5,7 @@ namespace App\Core;
 use App\Controller\CarController;
 use App\Controller\ContactController;
 use App\Controller\HomeController;
+use App\Controller\PaiementController;
 
 class Router
 {
@@ -41,6 +42,13 @@ class Router
             $this->currentController = new CarController;
             $this->currentController->showReservationDetails($param);
         });
+        // Je vais créer une route paiement + element dynamique
+        // PaiementController 
+        // showPaiementDetails
+        $this->addRoutes('/paiement/{id}',function(){
+            $this->currentController=new PaiementController;
+            $this->currentController->showPaiementDetails();
+        });
     }
     // Créer une méthode addRoutes qui sera utiliser uniquement dans la class 
     // Qui prendra 2 parametres : chaines de caractere et le deuxiement une fonction
@@ -55,7 +63,7 @@ class Router
     public function execute()
     {
         $requestUri = $_SERVER['REQUEST_URI'];
-        $requestUri = str_replace('/car-location', '', $requestUri);
+        $requestUri = str_replace('/poo-projet', '', $requestUri);
         foreach ($this->routes as $key => $closure) {
             if (preg_match($key, $requestUri, $matches)) {
                 array_shift($matches);

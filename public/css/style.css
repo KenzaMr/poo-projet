@@ -1,0 +1,54 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #ecf0f1;
+    --accent-color: #3498db;
+    --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    --padding: 20px;
+    --border-radius: 8px;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: var(--font-family);
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  header {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: var(--padding);
+    text-align: center;
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  main {
+    flex: 1;
+    padding: var(--padding);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  footer {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: var(--padding);
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  /* Contact.php */

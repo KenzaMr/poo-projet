@@ -2,10 +2,12 @@
 
 namespace App\Controller;
 
-class CarController
+use App\Controller\AbstractController;
+class CarController extends AbstractController
 {
-    public function showReservationDetails($x){
-        $id= $x['id'];
-        require_once '../templates/carcontrol.php';
+    public function showReservationDetails($x)
+    {
+        
+        $this->render('carcontrol',['id'=>$x['id']]);
     }
 }

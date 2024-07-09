@@ -24,3 +24,14 @@ INSERT INTO car (model, description, prix, img_pass) VALUES
 ('Ford Focus', 'Polyvalente et innovante, idéale pour toutes les situations.', 21000, 'ford_focus.jpg');
 
 ```
+
+### Création base donnée
+```sql
+create table user_connexion(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    pseudo VARCHAR(255),
+    email VARCHAR(255) UNIQUE,
+    mot_de_passe VARCHAR(255),
+    statut BOOLEAN
+);
+```

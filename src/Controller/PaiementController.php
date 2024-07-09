@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
-class PaiementController
+use App\Controller\AbstractController;
+
+class PaiementController extends AbstractController
 {
     public function showPaiementDetails(){
-        require_once '../templates/paiementcontrol.php';
+        $this->render('paiementcontrol');
     }
 }

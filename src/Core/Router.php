@@ -3,6 +3,7 @@
 namespace App\Core;
 
 use App\Controller\CarController;
+use App\Controller\Connexion;
 use App\Controller\ContactController;
 use App\Controller\HomeController;
 use App\Controller\PaiementController;
@@ -45,9 +46,18 @@ class Router
         // Je vais créer une route paiement + element dynamique
         // PaiementController 
         // showPaiementDetails
-        $this->addRoutes('/paiement/{id}',function(){
-            $this->currentController=new PaiementController;
+        $this->addRoutes('/paiement/{id}', function () {
+            $this->currentController = new PaiementController;
             $this->currentController->showPaiementDetails();
+        });
+        // Je vais crérer une route connexion
+        $this->addRoutes('/connexion', function () {
+            $this->currentController = new Connexion;
+            $this->currentController->connexionCompte();
+        });
+        $this->addRoutes('/connecter',function(){
+            $this->currentController= new Connexion;
+            $this->currentController->logIn();
         });
     }
     // Créer une méthode addRoutes qui sera utiliser uniquement dans la class 
@@ -63,7 +73,7 @@ class Router
     public function execute()
     {
         $requestUri = $_SERVER['REQUEST_URI'];
-        $requestUri = str_replace('/poo-projet', '', $requestUri);
+        $requestUri = str_replace('/car-location', '', $requestUri);
         foreach ($this->routes as $key => $closure) {
             if (preg_match($key, $requestUri, $matches)) {
                 array_shift($matches);

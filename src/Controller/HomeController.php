@@ -2,10 +2,11 @@
 
 namespace App\Controller;
 
-class HomeController
+use App\Controller\AbstractController;
+class HomeController extends AbstractController
 {
     public function index()
     {
-        require_once '../templates/home.php';
+        $this->render('home');
     }
 }

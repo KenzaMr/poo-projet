@@ -29,7 +29,7 @@ class Session
     public function displayFlashMessage(){
         if(isset($_SESSION['message'])){
             echo $_SESSION['message'];
-            unset($_SESSIION['message']);
+            unset($_SESSION['message']);
         }
     }
 

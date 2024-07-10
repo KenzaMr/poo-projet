@@ -13,14 +13,9 @@ class Database
 
 // getter de $connexion
 
-/**
- * @var string
- */
+
 private static  string $host ='localhost';
 
-/**
- * @var string
- */
 private static string $dbname='car_location';
 
 private static string $username='root';
@@ -32,7 +27,9 @@ private static \PDO $connexion;
 public static function initConnection(){
     try{
         self::$connexion = new \PDO
-        ('mysql:host=' . self::$host .';dbname=' . self::$dbname . "," , self::$username ,self::$password);
+        ('mysql:host=' . self::$host .';dbname=' . self::$dbname ,
+         self::$username ,
+         self::$password);
 
     }catch(PDOException $e){
         echo 'Erreur:'. $e->getMessage();

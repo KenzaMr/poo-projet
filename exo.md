@@ -1,4 +1,5 @@
 ### Modele
+
 ```sql
 create table car(
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -8,8 +9,10 @@ create table car(
     img_pass VARCHAR(255)
 )
 ```
-##  Insertion
-```sql 
+
+## Insertion
+
+```sql
 INSERT INTO car (model, description, prix, img_pass) VALUES
 ('Renault Clio', 'Une voiture compacte et économique idéale pour la ville.', 15000, 'renault_clio.jpg'),
 ('Peugeot 208', 'Un design élégant avec une technologie de pointe.', 18000, 'peugeot_208.jpg'),
@@ -26,6 +29,7 @@ INSERT INTO car (model, description, prix, img_pass) VALUES
 ```
 
 ### Création base donnée
+
 ```sql
 create table user_connexion(
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -34,4 +38,10 @@ create table user_connexion(
     mot_de_passe VARCHAR(255),
     statut BOOLEAN
 );
+```
+
+### Donnez des users
+
+```sql
+insert into user_connexion (pseudo,email,mot_de_passe,statut) values('ouraDu51', 'user1@example.com', 'password1', TRUE),('Nico2Binks', 'user2@example.com', 'password2', FALSE);
 ```

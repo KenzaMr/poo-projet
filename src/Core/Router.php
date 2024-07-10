@@ -3,7 +3,7 @@
 namespace App\Core;
 
 use App\Controller\CarController;
-use App\Controller\Connexion;
+use App\Controller\ConnexionController;
 use App\Controller\ContactController;
 use App\Controller\HomeController;
 use App\Controller\PaiementController;
@@ -52,11 +52,12 @@ class Router
         });
         // Je vais crérer une route connexion
         $this->addRoutes('/connexion', function () {
-            $this->currentController = new Connexion;
+            $this->currentController = new ConnexionController;
             $this->currentController->connexionCompte();
         });
         $this->addRoutes('/connecter',function(){
-            $this->currentController= new Connexion;
+            $this->currentController= new ConnexionController
+            ;
             $this->currentController->logIn();
         });
     }

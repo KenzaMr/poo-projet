@@ -3,8 +3,9 @@
 namespace App\Controller;
 
 use App\Controller\AbstractController;
+use App\Repository\UserRepository;
 
-class Connexion extends AbstractController
+class ConnexionController extends AbstractController
 {
     public function connexionCompte()
     {
@@ -20,6 +21,9 @@ class Connexion extends AbstractController
             } else {
                 echo 'erreur';
             }
+        $user= new UserRepository;
+        $user->getUserByEmail("user1@example.com");
+        var_dump($user);
         }
         // traiter les données 
         // si le formulaire a bien été envoyer avec POST

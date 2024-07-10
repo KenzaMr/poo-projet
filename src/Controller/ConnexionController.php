@@ -13,17 +13,24 @@ class ConnexionController extends AbstractController
     }
     public function logIn()
     {
-        var_dump($_POST);
+        // var_dump($_POST);
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (isset($_POST['email']) && isset($_POST['pswd']) && !empty($_POST['email']) && !empty($_POST['pswd'])) {
                 $email = trim($_POST['email']);
                 $pswd = trim($_POST['pswd']);
+
+                $user= new UserRepository;
+                $u=$user->getUserByEmail($email);
+                if($u== false){
+                    echo 'cet utilisateur';
+                }
+                if($u['mot_de_passz'] !== $pswd){
+                    echo 'erreur';
+                }
+
             } else {
                 echo 'erreur';
             }
-        $user= new UserRepository;
-        $user->getUserByEmail("user1@example.com");
-        var_dump($user);
         }
         // traiter les données 
         // si le formulaire a bien été envoyer avec POST

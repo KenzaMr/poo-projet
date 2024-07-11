@@ -75,7 +75,8 @@ class Router
             $this->currentController->showUserUpdateForm($x);
         });
         $this->addRoutes('/dashboard/users/update',function(){
-
+            $this->currentController=new AdminUserController;
+            $this->currentController->modifyUserId();
         });
 
     }

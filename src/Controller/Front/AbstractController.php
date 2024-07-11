@@ -9,9 +9,9 @@ abstract class AbstractController
         extract($param);
         
         ob_start();
-        require_once "../templates/{$path}.php";
+        require_once "../templates/front/{$path}.php";
         $content=ob_get_clean();
-        require_once '../templates/base.php';
+        require_once '../templates/front/base.php';
     }
 }
 

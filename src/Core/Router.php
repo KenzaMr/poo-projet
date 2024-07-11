@@ -70,6 +70,10 @@ class Router
             $this->currentController= new AdminUserController;
             $this->currentController->index();
         });
+        $this->addRoutes('/dashboard/users/modifier/{id}',function($x){
+            $this->currentController=new AdminUserController;
+            $this->currentController->showUserUpdateForm($x);
+        });
 
     }
     // Créer une méthode addRoutes qui sera utiliser uniquement dans la class 

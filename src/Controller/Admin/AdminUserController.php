@@ -8,11 +8,18 @@ use App\Repository\UserRepository;
 
 class AdminUserController extends AbstractAdminController
 {
-    public function index(){
-        $repo=new UserRepository;
-        $utilisateurs=$repo->getAllUser();
+    public function index()
+    {
+        $repo = new UserRepository;
+        $utilisateurs = $repo->getAllUser();
 
-        $this->render('admin/dashboard-users',['users'=>$utilisateurs]);
+        $this->render('dashboard-users', ['users' => $utilisateurs]);
     }
 
+    public function showUserUpdateForm($x)
+    {
+        $modif = new UserRepository;
+        $recup = $modif->getUserById($x['id']);
+        $this->render('user-update-form', ['user' => $recup]);
+    }
 }

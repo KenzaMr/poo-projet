@@ -9,8 +9,8 @@ abstract class AbstractAdminController
         extract($param);
         
         ob_start();
-        require_once "../templates/{$path}.php";
+        require_once "../templates/admin/{$path}.php";
         $content=ob_get_clean();
-        require_once '../templates/base.php';
+        require_once '../templates/admin/base.php';
     }
 }

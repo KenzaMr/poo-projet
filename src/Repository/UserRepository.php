@@ -24,12 +24,21 @@ class UserRepository extends AbstractRepository
         $y->execute();
         return $y->fetchAll(\PDO::FETCH_ASSOC);
     }
-    
+
     public function getUserById($x)
     {
         $m = $this->pdo->prepare("SELECT * FROM user_connexion WHERE id= :id");
-        $m->bindParam(':id',$x,\PDO::PARAM_INT);
+        $m->bindParam(':id', $x, \PDO::PARAM_INT);
         $m->execute();
         return $m->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function updateUserById($pseudo, $email, $id)
+    {
+        $stmt = $this->pdo->prepare("UPDATE user_connexion SET pseudo =:pseudo, email= :email WHERE id=:id ");
+        $stmt->bindParam(':pseudo', $pseudo, \PDO::PARAM_STR);
+        $stmt->bindParam(':email', $email, \PDO::PARAM_STR);
+        $stmt->bindParam(':id', $id, \PDO::PARAM_INT);
+        return $stmt->execute();
     }
 }

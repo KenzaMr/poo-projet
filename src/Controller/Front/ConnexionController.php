@@ -27,17 +27,17 @@ class ConnexionController extends AbstractController
                 $pswd = trim($_POST['pswd']);
 
 
-                $user = new UserRepository;
-                $u = $user->getUserByEmail($email);
+                $repository = new UserRepository;
+                $user = $repository->getUserByEmail($email);
 
-                if ($u == false) {
+                if ($user == false) {
                     $session->setFlashMessage('Tes identifiants sont faux');
                     header('Location:' . SITE_NAME . '/connexion');
                     exit;
                 }
 
 
-                if ($u['mot_de_passe'] !== $pswd) {
+                if ($user['mot_de_passe'] !== $pswd) {
                     $session->setFlashMessage('Tes identifiants sont faux');
                     header('Location:' . SITE_NAME . '/connexion');
                     exit;

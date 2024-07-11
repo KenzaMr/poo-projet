@@ -74,6 +74,9 @@ class Router
             $this->currentController=new AdminUserController;
             $this->currentController->showUserUpdateForm($x);
         });
+        $this->addRoutes('/dashboard/users/update',function(){
+
+        });
 
     }
     // Créer une méthode addRoutes qui sera utiliser uniquement dans la class 

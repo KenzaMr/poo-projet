@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Front;
 
-use App\Controller\AbstractController;
+use App\Controller\Front\AbstractController;
+
 
 class PaiementController extends AbstractController
 {

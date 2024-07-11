@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Front;
 
-use App\Controller\AbstractController;
+
+use App\Controller\Front\AbstractController;
 use App\Repository\UserRepository;
 use App\Core\Session;
 

@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Front;
 
-use App\Controller\AbstractController;
+
+use App\Controller\Front\AbstractController;
+
 class ContactController extends AbstractController
 {
     public function showContactForm(){

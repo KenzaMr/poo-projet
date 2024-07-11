@@ -2,11 +2,13 @@
 
 namespace App\Core;
 
-use App\Controller\CarController;
-use App\Controller\ConnexionController;
-use App\Controller\ContactController;
-use App\Controller\HomeController;
-use App\Controller\PaiementController;
+use App\Controller\Front\CarController;
+use App\Controller\Front\ConnexionController;
+use App\Controller\Front\ContactController;
+use App\Controller\Front\HomeController;
+use App\Controller\Front\PaiementController;
+use App\Controller\Admin\AdminController;
+use App\Controller\Admin\AdminUserController;
 
 class Router
 {
@@ -60,6 +62,15 @@ class Router
             ;
             $this->currentController->logIn();
         });
+        $this->addRoutes('/dashboard',function(){
+            $this->currentController=new AdminController;
+            $this->currentController->index();
+        });
+        $this->addRoutes('/dashboard/users', function(){
+            $this->currentController= new AdminUserController;
+            $this->currentController->index();
+        });
+
     }
     // Créer une méthode addRoutes qui sera utiliser uniquement dans la class 
     // Qui prendra 2 parametres : chaines de caractere et le deuxiement une fonction

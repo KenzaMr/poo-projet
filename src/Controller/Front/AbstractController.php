@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Front;
 
 abstract class AbstractController
 {
     protected function render(string $path, array $param =[])
     {
         extract($param);
+        
         ob_start();
         require_once "../templates/{$path}.php";
         $content=ob_get_clean();

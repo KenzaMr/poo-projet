@@ -1,8 +1,9 @@
 <?php
+namespace App\Controller\Front;
 
-namespace App\Controller;
 
-use App\Controller\AbstractController;
+use App\Controller\Front\AbstractController;
+
 class HomeController extends AbstractController
 {
     public function index()

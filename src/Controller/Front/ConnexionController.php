@@ -19,29 +19,30 @@ class ConnexionController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $session = new Session();
             if (isset($_POST['email']) && isset($_POST['pswd']) && !empty($_POST['email']) && !empty($_POST['pswd'])) {
-                $session->setFlashMessage('Bonne nouvelle, tu es connecté');
-                header('Location:' . SITE_NAME . '/connexion');
-                exit;
-
+                
                 $email = trim($_POST['email']);
                 $pswd = trim($_POST['pswd']);
-
-
+                
+                
                 $repository = new UserRepository;
                 $user = $repository->getUserByEmail($email);
-
+                
                 if ($user == false) {
                     $session->setFlashMessage('Tes identifiants sont faux');
                     header('Location:' . SITE_NAME . '/connexion');
                     exit;
                 }
-
-
+                
+                
                 if ($user['mot_de_passe'] !== $pswd) {
                     $session->setFlashMessage('Tes identifiants sont faux');
                     header('Location:' . SITE_NAME . '/connexion');
                     exit;
                 }
+                $session->createSession($user);
+                $session->setFlashMessage('Bonne nouvelle, tu es connecté');
+                header('Location:' . SITE_NAME . '/connexion');
+                exit;
             } else {
                 $session->setFlashMessage('Il manque quelque chose');
                 header('Location:' . SITE_NAME . '/connexion');

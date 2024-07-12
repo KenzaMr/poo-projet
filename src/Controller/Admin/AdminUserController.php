@@ -49,13 +49,14 @@ class AdminUserController extends AbstractAdminController
 
                 if ($isUpdateResult) {
                     $session->setFlashMessage("L'utilisateur a été mis à jour avec succès.");
-                    header('Location:' . SITE_NAME . "/dashboard/users/modifier/$id");
+                    header('Location:' . SITE_NAME . "/dashboard/users");
                     exit;
                 } else {
                     $session->setFlashMessage("Echec de la mise à jour .");
                     header('Location:' . SITE_NAME . "/dashboard/users/modifier/$id");
                     exit;
                 }
+                
             }
         }
     }

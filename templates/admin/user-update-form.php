@@ -1,7 +1,7 @@
 <main>
     <h1>Modification</h1>
     <!-- Créer la route avce la méthode qui va avec  -->
-    <form action="/car-location/dashboard/users/update" method="POST">
+    <form action="<?= SITE_NAME;?>/dashboard/users/update" method="POST">
         <div>
             <label for="email">Email</label>
             <input type="email" id="email" name="email" value="<?= $user['email']; ?>">

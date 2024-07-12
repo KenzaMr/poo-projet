@@ -24,6 +24,7 @@ $session= new Session()
         <a href="<?= SITE_NAME ?>/connexion">Connexion</a>
         <a href="<?= SITE_NAME ?>/dashboard">Tableau de bord</a>
     </header>
+    
     <?= $session->displayFlashMessage();?>
     <?= $content ?>
     <footer></footer>

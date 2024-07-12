@@ -13,6 +13,16 @@ class ConnexionController extends AbstractController
     {
         $this->render('connexion');
     }
+    public function deconnexionCompte()
+    {
+        // Je supprime la session et je l'a détruis
+        session_unset();
+        session_destroy();
+
+        header("Location:".SITE_NAME."/");
+        exit;
+    }
+
     public function logIn()
     {
         // var_dump($_POST);
@@ -41,7 +51,7 @@ class ConnexionController extends AbstractController
                 }
                 $session->createSession($user);
                 $session->setFlashMessage('Bonne nouvelle, tu es connecté');
-                header('Location:' . SITE_NAME . '/connexion');
+                header('Location:' . SITE_NAME . '/');
                 exit;
             } else {
                 $session->setFlashMessage('Il manque quelque chose');

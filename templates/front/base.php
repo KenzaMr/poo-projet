@@ -2,7 +2,7 @@
 
 use App\Core\Session;
 
-$session= new Session()
+$session = new Session()
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,10 +21,27 @@ $session= new Session()
     <header>
         <a href="<?= SITE_NAME ?>/">Accueil</a>
         <a href="<?= SITE_NAME ?>/contact">Contact</a>
-        <a href="<?= SITE_NAME ?>/connexion">Connexion</a>
-        <a href="<?= SITE_NAME ?>/dashboard">Tableau de bord</a>
+        <?php
+        if (isset($_SESSION['LOGGED_ID'])) {
+        ?>
+            <a href="<?= SITE_NAME ?>/deconnexion">deconnexion</a>
+            
+        <?php
+        } else {
+        ?>
+            <a href="<?= SITE_NAME ?>/connexion">connexion</a>
+        <?php
+        }
+        ?>
+        <?php
+        if (isset($_SESSION['LOGGED_ADMIN']) && $_SESSION['LOGGED_ADMIN']) {
+        ?>
+            <a href="<?= SITE_NAME ?>/dashboard">Tableau de bord</a>
+        <?php
+        }
+        ?>
     </header>
-    <?= $session->displayFlashMessage();?>
+    <?= $session->displayFlashMessage(); ?>
     <?= $content ?>
     <footer></footer>
 </body>

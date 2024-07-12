@@ -9,6 +9,7 @@ use App\Controller\Front\HomeController;
 use App\Controller\Front\PaiementController;
 use App\Controller\Admin\AdminController;
 use App\Controller\Admin\AdminUserController;
+use App\Controller\Admin\AdminCarController;
 
 class Router
 {
@@ -57,6 +58,10 @@ class Router
             $this->currentController = new ConnexionController;
             $this->currentController->connexionCompte();
         });
+        $this->addRoutes('/deconnexion', function () {
+            $this->currentController = new ConnexionController;
+            $this->currentController->deconnexionCompte();
+        });
         $this->addRoutes('/connecter',function(){
             $this->currentController= new ConnexionController
             ;
@@ -77,6 +82,14 @@ class Router
         $this->addRoutes('/dashboard/users/update',function(){
             $this->currentController=new AdminUserController;
             $this->currentController->modifyUserId();
+        });
+        $this->addRoutes('/dashboard/cars',function(){
+            $this->currentController=new AdminCarController;
+            $this->currentController->index();
+        });
+        $this->addRoutes('/dashboard/cars/ajouter',function(){
+            $this->currentController=new AdminCarController;
+            $this->currentController->showCreateForm();
         });
 
     }

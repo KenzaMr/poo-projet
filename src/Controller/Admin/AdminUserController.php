@@ -26,29 +26,34 @@ class AdminUserController extends AbstractAdminController
     public function modifyUserId()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $session=new Session();
+            $session = new Session();
             if (
                 isset($_POST['email'])
                 && isset($_POST['pseudo'])
                 && isset($_POST['id'])
+                && isset($_POST['statut'])
                 && !empty($_POST['email'])
                 && !empty($_POST['pseudo'])
                 && !empty($_POST['id'])
+                && !empty($_POST['statut'])
             ) {
                 $email = trim($_POST['email']);
                 $pseudo = trim($_POST['pseudo']);
                 $id = trim($_POST['id']);
+                $statut = $_POST['statut'] === 'true' ? true : false;
+
 
                 $modify = new UserRepository;
-                $isUpdateResult = $modify->updateUserById($email, $pseudo, $id);
+                $isUpdateResult = $modify->updateUserById($pseudo, $email, $statut, $id);
+
 
                 if ($isUpdateResult) {
                     $session->setFlashMessage("L'utilisateur a été mis à jour avec succès.");
-                    header('Location:'. SITE_NAME .'/dashboard/users/modifier');
+                    header('Location:' . SITE_NAME . "/dashboard/users/modifier/$id");
                     exit;
-                }else{
+                } else {
                     $session->setFlashMessage("Echec de la mise à jour .");
-                    header('Location:'. SITE_NAME .'/dashboard/users/modifier');
+                    header('Location:' . SITE_NAME . "/dashboard/users/modifier/$id");
                     exit;
                 }
             }
